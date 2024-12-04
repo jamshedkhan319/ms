@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Only Personal</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"> <!-- Font Awesome Icon -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+           display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            background: linear-gradient(135deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1));
+
+        }
+
+        #loginContainer, #chatContainer {
+            width: 90%;
+            max-width: 600px;
+            background-color: #fff;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        #loginContainer {
+            padding: 20px;
+            text-align: center;
+        }
+
+        #loginContainer h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #4caf50;
+        }
+
+        #loginContainer input {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        #loginButton {
+            padding: 15px 25px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        #loginButton:hover {
+            background-color: #45a049;
+        }
+
+        #successMessage {
+            margin-top: 15px;
+            color: #28a745;
+            font-size: 14px;
+            display: none;
+        }
+
+        #chatContainer {
+            display:none;
+            flex-direction: column;
+            height: 99vh;
+        }
+
+        #chatBox {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background-color: #f7f7f7;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .message {
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 10px;
+            max-width: 70%;
+            word-wrap: break-word;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .user {
+            background-color: #daf8e3;
+            align-self: flex-end;
+            text-align: right;
+        }
+
+        .bot {
+            background-color: #ffe8d1;
+            align-self: flex-start;
+            text-align: left;
+        }
+
+        #inputContainer {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            border-top: 1px solid #ddd;
+            background-color: #fff;
+        }
+
+        #messageInput {
+            flex: 1;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 25px 0 0 25px;
+            outline: none;
+            font-size: 16px;
+            background: #fff;
+        }
+
+        #sendButton {
+            padding: 15px 20px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 0 25px 25px 0;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        #sendButton:hover {
+            background-color: #45a049;
+        }
+
+        #sendButton i {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="loginContainer">
+        <h2>Only Personal</h2>
+        <input type="password" id="loginCode" placeholder="Enter the Password" />
+        <button id="loginButton" onclick="login()">Login</button>
+        <p id="successMessage">Login successful! Redirecting to chat...</p>
+    </div>
+
+    <div id="chatContainer">
+        <div id="chatBox"></div>
+        <div id="inputContainer">
+            <input type="text" id="messageInput" placeholder="Type your message here..." />
+            <button id="sendButton" onclick="sendMessage()">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
